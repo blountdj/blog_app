@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "taggit",
     "django.contrib.sites", # for sitemap
     "django.contrib.sitemaps", # for sitemap
+    "django.contrib.postgres", # for postgresql
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -89,10 +90,21 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# SQLITE
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+# POSTGRES
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "blog",
+        "USER": "postgres",
+        "PASSWORD": "password",
     }
 }
 
